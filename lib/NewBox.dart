@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hello_world/NewsBoxFavourit.dart';
 
 class NewBox extends StatelessWidget {
   final String _title;
   final String _text;
   String _imageUrl;
 
-  NewBox (this._title, this._text, {String imageUrl}) {
+  int _num;
+  bool _like;
+
+  NewBox (this._title, this._text, {String imageUrl, int num = 0, bool like = false}) {
     _imageUrl = imageUrl;
+    _num = num;
+    _like = like;
   }
 
   @override
@@ -23,7 +29,8 @@ class NewBox extends StatelessWidget {
             Expanded ( child: new Text(_text, softWrap: true, textAlign: TextAlign.justify,))
           ],),
         )
-        )
+        ),
+        NewsBoxFavourit(_num, _like)
       ],),
     );
   }
